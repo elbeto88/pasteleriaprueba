@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talento Cultural Culiacán - Estructura y Navegación</title>
+<style>
+/* Activar desplazamiento suave para toda la página */
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+body {
+font-family: system-ui, -apple-system, sans-serif;
+line-height: 1.6;
+margin: 0; padding: 0;
+color: #f4f4f5;
+background-color: #0c0c0e;
+}
+/* Layout principal con Grid para integrar la barra lateral (aside) */
+.site-layout {
+max-width: 1100px;
+margin: 1.5rem auto;
+padding: 0 1rem;
+display: grid;
+grid-template-columns: 1fr 280px;
+gap: 1.5rem;
+}
+@media (max-width: 768px) {
+.site-layout { grid-template-columns: 1fr; }
+}
+header {
+background: #000000;
+color: white;
+border-bottom: 4px solid #00ff66;
+text-align: center;
+padding: 2rem 1rem;
+box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15);
+}
+/* Navegación Principal y Menú Desplegable */
+nav.main-nav { background: #161619; padding: 0.75rem; border-radius: 6px;
+margin-top: 1rem; }
+nav.main-nav ul { list-style: none; padding: 0; margin: 0; display: flex;
+justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.dropdown { position: relative; display: inline-block; }
+.drop-btn { color: #00ff66; text-decoration: none; font-weight: bold;
+background: none; border: none; font-size: 1rem; cursor: pointer; padding: 0; }
+.dropdown-content {
+display: none; position: absolute; background-color: #161619; min-width:
+160px;
+box-shadow: 0px 8px 16px rgba(0,0,0,0.6); z-index: 1; border: 1px solid
+#27272a; border-radius: 4px; top: 100%; left: 0;
+}
+.dropdown-content a { color: #f4f4f5; padding: 10px 14px; text-decoration:
+none; display: block; font-weight: normal; }
+.dropdown-content a:hover { background-color: #27272a; color: #00ff66; }
+/* Mostrar menú desplegable al pasar el ratón o tener foco */
+.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content
+{ display: block; }
+nav.main-nav a:not(.drop-btn) {
+color: #00ff66; text-decoration: none; font-weight: bold;
+transition: color 0.2s ease, transform 0.2s ease;
+display: inline-block; will-change: transform;
+}
+nav.main-nav a:hover, nav.main-nav a:focus {
+color: #4dff88; transform: translateY(-2px); text-decoration: underline;
+}
+/* Contenido y Barra Lateral (Aside) */
+main { display: flex; flex-direction: column; gap: 1.5rem; }
+.card {
+background: #161619; border: 1px solid #27272a; border-radius: 8px;
+padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+transition: border-color 0.3s ease;
+}
+.card:hover { border-color: #00ff66; }
+aside {
+background: #161619; border: 1px solid #27272a; border-radius: 8px;
+padding: 1.5rem; height: fit-content;
+}
+aside h3 { color: #00ff66; margin-top: 0; font-size: 1.2rem; border-bottom: 2px
+solid #27272a; padding-bottom: 0.5rem; }
+aside ul { padding-left: 1.2rem; margin: 0.5rem 0; }
+aside li { margin-bottom: 0.5rem; }
+aside a { color: #f4f4f5; text-decoration: none; transition: color 0.2s; }
+aside a:hover { color: #00ff66; text-decoration: underline; }
+h1, h2 { color: #00ff66; }
+p { color: #d4d4d8; }
+/* Estilos del pie de página */
+footer {
+background: #000000; color: #a1a1aa; text-align: center;
+padding: 2rem 1rem; margin-top: 2rem; border-top: 1px solid #27272a;
+}
+footer a { color: #00ff66; text-decoration: none; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+/* Accesibilidad de enfoque por teclado */
+a:focus-visible, button:focus-visible {
+outline: 2px solid #00ff66; outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+<!-- 1 & 3. Encabezado y Navegación Principal con Menú Desplegable -->
+<header>
+<h1>Talento Cultural Culiacán</h1>
+<p>Plataforma de mapeo y promoción artística local</p>
+<nav class="main-nav" aria-label="Navegación principal">
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<!-- Menú desplegable interactivo (:hover / :focus) -->
+<li class="dropdown">
+<button class="drop-btn" aria-haspopup="true" aria-
+expanded="false">Secciones </button>▾
+<div class="dropdown-content">
+<a href="#multimedia">Multimedia</a>
+<a href="#artistas">Artistas</a>
+<a href="#contacto">Contacto</a>
+</div>
+</li>
+<li><a href="#multimedia">Muestra Cultural</a></li>
+<li><a href="#contacto">Registro</a></li>
+</ul>
+</nav>
+</header>
+<!-- Layout que divide el contenido principal y la barra lateral (<aside>) -->
+<div class="site-layout">
+<!-- Contenido Principal Semántico (<main>) -->
+<main>
+<section id="inicio" class="card">
+<article>
+<h2>Mapa de Talento Local</h2>
+<p>Bienvenido al portal del proyecto. Esta plataforma busca visibilizar a
+los creadores de Culiacán, conectando a músicos, ilustradores, artistas visuales y
+colectivos culturales independientes con la comunidad y espacios locales.</p>
+<p>Puedes explorar las diferentes categorías o consultar la <a
+href="#multimedia" style="color: #00ff66;">navegación contextual hacia la muestra
+multimedia</a> para conocer más sobre los creadores.</p>
+</article>
+</section>
+<section id="multimedia" class="card">
+<article>
+<h2>Muestra Multimedia</h2>
+<p>Reproducción de contenidos audiovisuales e investigación sonora de la
+región.</p>
+<!-- Elemento de video accesible -->
+<h3>Muestra Audiovisual</h3>
+<video controls loop width="100%"
+poster="https://via.placeholder.com/800x450?text=Vista+Previa+Video">
+<source src="video67.mp4" type="video/mp4">
+<p>Tu navegador no admite la etiqueta de video. <a href="video67.mp4"
+style="color: #00ff66;">Descarga el video aquí</a>.</p>
+</video>
+</article>
+</section>
+<section id="artistas" class="card">
+<article>
+<h2>Directorio de Artistas</h2>
+<p>Espacio dedicado a destacar perfiles independientes de música, diseño
+e ilustración en Sinaloa.</p>
+</article>
+</section>
+<section id="contacto" class="card">
+<article>
+<h2>Registro y Contacto</h2>
+<p>Inscribe tu propuesta artística en nuestra base de datos completando
+el formulario oficial de registro.</p>
+</article>
+</section>
+</main>
+<!-- 2 & 3. Barra Lateral (<aside>) con Navegación Secundaria -->
+<aside aria-label="Barra lateral de información complementaria">
+<h3>Navegación Secundaria</h3>
+<ul>
+<li><a href="#inicio">Ir arriba</a></li>
+<li><a href="#multimedia">Ver multimedia</a></li>
+<li><a href="#artistas">Ver artistas</a></li>
+<li><a href="#contacto">Ir al registro</a></li>
+</ul>
+<h3>Enlaces de Interés</h3>
+<ul>
+<li><a href="#privacidad">Aviso de Privacidad</a></li>
+<li><a href="#terminos">Términos de Uso</a></li>
+<li><a href="#convocatoria">Convocatoria 2026</a></li>
+</ul>
+</aside>
+</div>
+<!-- 3. Pie de página (<footer>) con enlaces de interés y accesibilidad -->
+<footer>
+<p>&copy; 2026 Talento Cultural Culiacán. Todos los derechos reservados.</p>
+<p>
+<a href="#privacidad">Política de privacidad</a> |
+<a href="#terminos">Términos y condiciones</a> |
+<a href="mailto:contacto@talentoculiacan.org">Contacto institucional</a>
+</p>
+</footer>
+</body>
+</html
